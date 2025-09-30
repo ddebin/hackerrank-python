@@ -64,7 +64,7 @@ def main(fptr: IO) -> None:
 
 if __name__ == "__main__":
     if "OUTPUT_PATH" in os.environ:
-        fptr = open(os.environ["OUTPUT_PATH"], "w")
+        fptr = open(os.environ["OUTPUT_PATH"], "wt")
     else:
         fptr = sys.stdout
 

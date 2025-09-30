@@ -1,0 +1,30 @@
+[project]
+name = "hn-python"
+description = "My submissions to HN challenges"
+authors = [
+    {name = "Damien Debin",email = "damien.debin@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+]
+
+[dependency-groups]
+dev = [
+    "black (>=25.9.0,<26.0.0)",
+    "flake8 (>=7.3.0,<8.0.0)",
+    "pytest (>=8.4.2,<9.0.0)",
+    "flake8-bugbear (>=24.12.12,<25.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+package-mode = false
+
+[tool.black]
+line-length = 88
+target-version = ['py313']

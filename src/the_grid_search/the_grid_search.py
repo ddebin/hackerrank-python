@@ -2,23 +2,16 @@
 
 import sys
 import os
+from typing import IO
 
-#
-# Complete the 'gridSearch' function below.
-#
-# The function is expected to return a STRING.
-# The function accepts following parameters:
-#  1. STRING_ARRAY G
-#  2. STRING_ARRAY P
-#
 
 def gridSearch(G: list[str], P: list[str]) -> str:
     """
     Returns a string("YES", "NO") if pattern P has been found in G.
 
     Arguments:
-    G – the grid to search
-    P – the pattern to search for
+    G - the grid to search
+    P - the pattern to search for
     """
     p = P[0]
     for i in range(len(G) - len(P) + 1):
@@ -33,19 +26,15 @@ def gridSearch(G: list[str], P: list[str]) -> str:
                     found = False
                     break
             if found:
-                return 'YES'
+                return "YES"
             start += 1
-    return 'NO'
+    return "NO"
 
-if __name__ == '__main__':
-    if "FOO" in os.environ:
-        fptr = open(os.environ['OUTPUT_PATH'], 'w')
-    else:
-        fptr = sys.stdout
 
+def main(fptr: IO) -> None:
     t = int(input().strip())
 
-    for t_itr in range(t):
+    for _itr in range(t):
         first_multiple_input = input().rstrip().split()
 
         R = int(first_multiple_input[0])
@@ -54,6 +43,7 @@ if __name__ == '__main__':
         G = []
         for _ in range(R):
             G_item = input()
+            assert len(G_item) == C
             G.append(G_item)
 
         second_multiple_input = input().rstrip().split()
@@ -64,10 +54,20 @@ if __name__ == '__main__':
         P = []
         for _ in range(r):
             P_item = input()
+            assert len(P_item) == c
             P.append(P_item)
 
         result = gridSearch(G, P)
 
-        fptr.write(result + '\n')
+        fptr.write(result + "\n")
+
+
+if __name__ == "__main__":
+    if "OUTPUT_PATH" in os.environ:
+        fptr = open(os.environ["OUTPUT_PATH"], "w")
+    else:
+        fptr = sys.stdout
+
+    main(fptr)
 
     fptr.close()

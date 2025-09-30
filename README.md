@@ -7,6 +7,7 @@
 - [`the-grid-search`](src/the_grid_search.py): [The Grid Search](https://www.hackerrank.com/challenges/the-grid-search/)
 - [`bigger-is-greater`](src/bigger_is_greater.py): [Bigger is Greater](https://www.hackerrank.com/challenges/bigger-is-greater/)
 - [`climbing-the-leaderboard`](src/climbing_the_leaderboard.py): [Climbing the Leaderboard](https://www.hackerrank.com/challenges/climbing-the-leaderboard/)
+- [`magic-square-forming`](src/magic_square_forming.py): [Forming a Magic Square](https://www.hackerrank.com/challenges/magic-square-forming/)
 
 ### Hard difficulty
 

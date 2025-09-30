@@ -50,7 +50,7 @@ def biggerIsGreater(word: str) -> str:
 
 def main(fptr: IO) -> None:
     T = int(input().strip())
-    for _itr in range(T):
+    for _ in range(T):
         w = input()
         result = biggerIsGreater(w)
         fptr.write(result + "\n")

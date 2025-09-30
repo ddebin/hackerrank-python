@@ -34,7 +34,7 @@ def gridSearch(G: list[str], P: list[str]) -> str:
 def main(fptr: IO) -> None:
     t = int(input().strip())
 
-    for _itr in range(t):
+    for _ in range(t):
         first_multiple_input = input().rstrip().split()
 
         R = int(first_multiple_input[0])

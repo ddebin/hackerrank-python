@@ -1,4 +1,4 @@
-import bigger_is_greater
+from ..bigger_is_greater import main
 import sys
 import glob
 import os
@@ -6,7 +6,7 @@ import tempfile
 
 
 def test_answer():
-    files = glob.glob(os.path.dirname(__file__) + "/*.input")
+    files = glob.glob(os.path.dirname(__file__) + "/data/biggers-is-greater-*.input")
     for input_file in files:
         print(input_file)
         output_file = input_file.replace(".input", ".output")
@@ -14,7 +14,7 @@ def test_answer():
         with tempfile.NamedTemporaryFile(
             mode="w+t", encoding="utf-8", delete=True, delete_on_close=True
         ) as temp_file:
-            bigger_is_greater.main(temp_file.file)
+            main(temp_file.file)
             temp_file.file.seek(0)
             with open(output_file, mode="r+t", encoding="utf-8") as output_file:
                 assert (

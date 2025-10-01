@@ -1,10 +1,10 @@
-from ..climbing_the_leaderboard import main
+from ..quadrant_queries_v2 import main
 from . import loop
 import sys
 
 
 def test_answer():
-    loop.loop_inputs("climbing-the-leaderboard-*", main)
+    loop.loop_inputs("quadrant-queries-*", main)
 
 
 def setup_method(self):

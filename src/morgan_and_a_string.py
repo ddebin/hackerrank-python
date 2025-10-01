@@ -5,7 +5,7 @@ import os
 from typing import IO
 
 
-def morganAndString(fptr, a: str, b: str) -> None:
+def morganAndString(fptr: IO, a: str, b: str) -> None:
     i = j = 0
     # '~' is > 'z'
     while not a[i] == b[j] == "~":

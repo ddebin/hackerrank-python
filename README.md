@@ -1,4 +1,4 @@
-# My submissions to [HackerRank](https://www.hackerrank.com/profile/damien_debin) in Python 3
+# My [submissions](https://www.hackerrank.com/profile/damien_debin) to [HackerRank](https://www.hackerrank.com/) in Python 3
 
 ## Medium difficulty
 

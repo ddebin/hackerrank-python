@@ -59,10 +59,10 @@ def update(idx: int, ss: int, se: int, val: int, pos: int) -> None:
 
 # UPDATING NEW INFORMATION IN THE SEGMENT TREE
 def updateRange(idx: int, ss: int, se: int, val: int, L: int, R: int) -> None:
-    if L > se or R < ss:
+    if se < L or ss > R:
         # out of range
         return
-    if ss == se or (L <= ss and se <= R):
+    if ss == se or (ss >= L and se <= R):
         # point where the actual updation is required
         # or current segment lies completely in the required interval i.e [L,R]
         tree[idx][4] ^= val
@@ -78,11 +78,11 @@ def updateRange(idx: int, ss: int, se: int, val: int, L: int, R: int) -> None:
 
 # QUERING INTERVAL [L,R] FOR THE REQUIRED INFORMATION
 def query(idx: int, ss: int, se: int, L: int, R: int) -> list[int]:
-    if L > se or R < ss:
+    if se < L or ss > R:
         # out of range
         return [0, 0, 0, 0, 0]
 
-    if L <= ss and se <= R:
+    if ss >= L and se <= R:
         # current segment lies completely in the required interval i.e [L,R]
         ret = tree[idx]
         if tree[idx][4] & 1 == 1:
@@ -159,10 +159,8 @@ def main(fptr: IO) -> None:
 
 if __name__ == "__main__":
     if "OUTPUT_PATH" in os.environ:
-        fptr = open(os.environ["OUTPUT_PATH"], "wt")
+        with open(os.environ["OUTPUT_PATH"], "wt") as fptr:
+            main(fptr)
+            fptr.close()
     else:
-        fptr = sys.stdout
-
-    main(fptr)
-
-    fptr.close()
+        main(sys.stdout)

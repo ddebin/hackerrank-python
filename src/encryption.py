@@ -17,18 +17,11 @@ def encryption(s: str) -> str:
         else:
             columns += 1
 
-    matrix = []
-    for i in range(0, s_len, columns):
-        matrix.append(s[i : i + columns])
+    matrix = [s[i : i + columns] for i in range(0, s_len, columns)]
 
-    result = ""
-    for i in range(columns):
-        for line in matrix:
-            if i < len(line):
-                result += line[i]
-        result += " "
-
-    return result.rstrip()
+    return " ".join(
+        "".join(line[i] for line in matrix if i < len(line)) for i in range(columns)
+    )
 
 
 def main(fptr: IO) -> None:
@@ -39,10 +32,8 @@ def main(fptr: IO) -> None:
 
 if __name__ == "__main__":
     if "OUTPUT_PATH" in os.environ:
-        fptr = open(os.environ["OUTPUT_PATH"], "wt")
+        with open(os.environ["OUTPUT_PATH"], "wt") as fptr:
+            main(fptr)
+            fptr.close()
     else:
-        fptr = sys.stdout
-
-    main(fptr)
-
-    fptr.close()
+        main(sys.stdout)

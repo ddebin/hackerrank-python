@@ -13,10 +13,11 @@
 
 - [`matrix-rotation-algo`](src/matrix_rotation_algo.py): [Matrix Layer Rotation](https://www.hackerrank.com/challenges/matrix-rotation-algo/)
 
-### Advanced difficulty
-
-- [`quadrant-queries-v1`](src/quadrant_queries_v1.py), [`v2`](src/quadrant_queries_v2.py): [Quadrant Queries](https://www.hackerrank.com/challenges/quadrant-queries/)
-
 ### Expert difficulty
 
 - [`morgan-and-a-string`](src/morgan_and_a_string.py): [Morgan and a String](https://www.hackerrank.com/challenges/morgan-and-a-string/)
+
+### Advanced difficulty
+
+- [`quadrant-queries-v1`](src/quadrant_queries_v1.py), [`v2`](src/quadrant_queries_v2.py): [Quadrant Queries](https://www.hackerrank.com/challenges/quadrant-queries/)
+- [`ashton-and-string`](src/ashton_and_string.py): [Ashton and String](https://www.hackerrank.com/challenges/ashton-and-string/)

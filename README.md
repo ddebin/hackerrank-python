@@ -1,4 +1,4 @@
-# My [submissions](https://www.hackerrank.com/profile/damien_debin) to [HackerRank](https://www.hackerrank.com/) in Python 3
+# [My](https://www.hackerrank.com/profile/damien_debin) submissions to [HackerRank](https://www.hackerrank.com/) in Python 3
 
 ## Medium difficulty
 
@@ -11,6 +11,7 @@
 ## Hard difficulty
 
 - [`matrix-rotation-algo`](src/matrix_rotation_algo.py): [Matrix Layer Rotation](https://www.hackerrank.com/challenges/matrix-rotation-algo/)
+- [`determining-dna-health`](src/determining_dna_health.py): [Determining DNA Health](https://www.hackerrank.com/challenges/determining-dna-health/)
 
 ## Expert difficulty
 

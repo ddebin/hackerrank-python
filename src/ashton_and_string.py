@@ -9,7 +9,6 @@ from typing import IO
 def ashtonString(s: str, k: int) -> str:
     N = len(s)
 
-    # suffixRank is table hold the rank of each string
     suffixRank = [0] * N
 
     # Example "abaab"
@@ -21,12 +20,12 @@ def ashtonString(s: str, k: int) -> str:
     #   int firstHalf;       // store rank for first half of suffix
     #   int secondHalf;      // store rank for second half of suffix
     # };
-    L = [[0] * 3 for _ in range(N)]
+    L = [(0, 0, 0) for _ in range(N)]
 
+    # suffixRank is table hold the rank of each string
     # Initialize suffix ranking on the basis of only single character
     # for single character ranks will be 'a' = 0, 'b' = 1, 'c' = 2 ... 'z' = 25
-    for j in range(N):
-        suffixRank[j] = ord(s[j]) - ord("a")
+    suffixRank = [ord(s[i]) - ord("a") for i in range(N)]
 
     # Iterate log(n) times i.e. till when all the suffixes are sorted
     # 'stp' keeps the track of number of iteration
@@ -40,9 +39,7 @@ def ashtonString(s: str, k: int) -> str:
     while cnt < N:
 
         for i in range(N):
-            L[i][0] = i
-            L[i][1] = suffixRank[i]
-            L[i][2] = suffixRank[i + cnt] if (i + cnt) < N else -1
+            L[i] = (i, suffixRank[i], suffixRank[i + cnt] if i + cnt < N else -1)
 
         # On the basis of tuples obtained sort the tuple array
         # L.sort(key = cmp_to_key(lambda a, b: a[2] - b[2] if a[1] == b[1] else a[1] - b[1]))

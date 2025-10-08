@@ -16,8 +16,9 @@
 ## Expert difficulty
 
 - [`morgan-and-a-string`](src/morgan_and_a_string.py): [Morgan and a String](https://www.hackerrank.com/challenges/morgan-and-a-string/)
+- [`string-similarity v1`](src/string_similarity_v1.py), [`v2`](src/string_similarity_v2.py): [String Similarity](https://www.hackerrank.com/challenges/string-similarity/)
 
 ## Advanced difficulty
 
 - [`ashton-and-string`](src/ashton_and_string.py): [Ashton and String](https://www.hackerrank.com/challenges/ashton-and-string/)
-- [`quadrant-queries-v1`](src/quadrant_queries_v1.py), [`v2`](src/quadrant_queries_v2.py): [Quadrant Queries](https://www.hackerrank.com/challenges/quadrant-queries/)
+- [`quadrant-queries v1`](src/quadrant_queries_v1.py), [`v2`](src/quadrant_queries_v2.py): [Quadrant Queries](https://www.hackerrank.com/challenges/quadrant-queries/)

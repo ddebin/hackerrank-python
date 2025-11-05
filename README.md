@@ -7,6 +7,7 @@
 - [`encryption`](src/encryption.py): [Encryption](https://www.hackerrank.com/challenges/encryption/)
 - [`bigger-is-greater`](src/bigger_is_greater.py): [Bigger is Greater](https://www.hackerrank.com/challenges/bigger-is-greater/)
 - [`the-grid-search`](src/the_grid_search.py): [The Grid Search](https://www.hackerrank.com/challenges/the-grid-search/)
+- [`sherlock-and-valid-string`](src/sherlock_and_valid_string.py): [Sherlock and the Valid String](https://www.hackerrank.com/challenges/sherlock-and-valid-string/)
 
 ## Hard difficulty
 

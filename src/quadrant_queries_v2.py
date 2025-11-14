@@ -3,6 +3,7 @@
 import math
 import os
 import sys
+from pathlib import Path
 from typing import IO
 
 
@@ -93,10 +94,10 @@ def query(idx: int, ss: int, se: int, L: int, R: int) -> list[int]:
 
     mid = (ss + se) // 2
     left = query(
-        2 * idx, ss, mid, L, R
+        2 * idx, ss, mid, L, R,
     )  # extracting information from the left if left segment contains part of our interval
     right = query(
-        2 * idx + 1, mid + 1, se, L, R
+        2 * idx + 1, mid + 1, se, L, R,
     )  # extracting information from the right if right segment contains part of our interval
 
     ret = [0, 0, 0, 0, 0]
@@ -158,8 +159,8 @@ def main(fptr: IO) -> None:
 
 
 if __name__ == "__main__":
-    if "OUTPUT_PATH" in os.environ:
-        with open(os.environ["OUTPUT_PATH"], "wt") as fptr:
+    if path := os.getenv("OUTPUT_PATH"):
+        with Path(path).open("wt", encoding="utf-8") as fptr:
             main(fptr)
             fptr.close()
     else:

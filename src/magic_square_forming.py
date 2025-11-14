@@ -2,6 +2,7 @@
 
 import os
 import sys
+from pathlib import Path
 from typing import IO
 
 min_cost = 100
@@ -37,8 +38,6 @@ def loop(s: list[int], pos: int, cost: int) -> None:
         else:
             loop(s, pos + 1, c)
 
-    return
-
 
 def formingMagicSquare(s: list[list[int]]) -> int:
     flat = [x for xs in s for x in xs]
@@ -53,8 +52,8 @@ def main(fptr: IO) -> None:
 
 
 if __name__ == "__main__":
-    if "OUTPUT_PATH" in os.environ:
-        with open(os.environ["OUTPUT_PATH"], "wt") as fptr:
+    if path := os.getenv("OUTPUT_PATH"):
+        with Path(path).open("wt", encoding="utf-8") as fptr:
             main(fptr)
             fptr.close()
     else:

@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
+import itertools
 import os
 import sys
-import itertools
+from pathlib import Path
 from typing import IO
 
 
@@ -91,8 +92,8 @@ def main(fptr: IO) -> None:
 
 
 if __name__ == "__main__":
-    if "OUTPUT_PATH" in os.environ:
-        with open(os.environ["OUTPUT_PATH"], "wt") as fptr:
+    if path := os.getenv("OUTPUT_PATH"):
+        with Path(path).open("wt", encoding="utf-8") as fptr:
             main(fptr)
             fptr.close()
     else:

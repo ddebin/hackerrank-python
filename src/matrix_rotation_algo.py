@@ -1,17 +1,13 @@
 #!/usr/bin/env python3
 
-import sys
 import os
+import sys
+from pathlib import Path
 from typing import IO
 
 
-def print_matrix(matrix: list[list[int]]) -> None:
-    for r in matrix:
-        fptr.write(" ".join(map(str, r)) + "\n")
-
-
 def rotate(matrix: list[list[int]], layer: int, m: int, n: int) -> None:
-    """Rotate matrix with m lines, n columns"""
+    """Rotate matrix with m lines, n columns."""
     tmp = matrix[layer][layer]
     # left border
     for i in range(layer + 1, m - layer):
@@ -57,12 +53,12 @@ def main(fptr: IO) -> None:
         assert len(line) == n
         matrix.append(line)
     matrixRotation(matrix, r, m, n)
-    print_matrix(matrix)
+    fptr.writelines(" ".join(map(str, r)) + "\n" for r in matrix)
 
 
 if __name__ == "__main__":
-    if "OUTPUT_PATH" in os.environ:
-        with open(os.environ["OUTPUT_PATH"], "wt") as fptr:
+    if path := os.getenv("OUTPUT_PATH"):
+        with Path(path).open("wt", encoding="utf-8") as fptr:
             main(fptr)
             fptr.close()
     else:

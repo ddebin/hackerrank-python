@@ -24,11 +24,40 @@ build-backend = "poetry.core.masonry.api"
 package-mode = false
 
 [tool.black]
-line-length = 88
+line-length = 120
 target-version = ['py313']
 
+[tool.ruff]
+line-length = 120
+
 [tool.ruff.lint]
-# Enable Pyflakes (`F`) and a subset of the pycodestyle (`E`) codes by default.
-# Unlike Flake8, Ruff doesn't enable pycodestyle warnings (`W`) or
-# McCabe complexity (`C901`) by default.
-select = ["E4", "E7", "E9", "F", "B", "ICN", "PT", "SIM", "TC", "PERF", "W", "C4"]
+select = ["ALL"]
+ignore = [
+    "A001", # Variable `...` is shadowing a Python builtin
+    "BLE001", # Do not catch blind exception: `Exception`
+    "CPY001", # Missing copyright notice at top of file
+    "D1",
+    "D211", # `incorrect-blank-line-before-class` (D203) and `no-blank-line-before-class` (D211) are incompatible
+    "D212", # `multi-line-summary-first-line` (D212) and `multi-line-summary-second-line` (D213) are incompatible
+    "DOC201", # `return` is not documented in docstring
+    "D417", # Missing argument descriptions in the docstring for ...
+    "EM101", # Exception must not use a string literal, assign to variable first
+    "ERA001", # Found commented-out code
+    "FBT001", # Boolean-typed positional argument in function definition
+    "FBT003", # Boolean positional value in function call
+    "N8",
+    "PLW0603", # Using the global statement to update `...` is discouraged
+    "PLR2004", # Magic value used in comparison
+    "S101", # Use of `assert` detected
+    "S311", # Standard pseudo-random generators are not suitable for cryptographic purposes
+    "TRY002", # Create your own exception
+    "TRY003", # Avoid specifying long messages outside the exception class
+    "TRY301", # Abstract `raise` to an inner function
+ ]
+ 
+[tool.ruff.lint.mccabe]
+max-complexity = 15
+
+[tool.ruff.lint.pylint]
+max-args = 8
+max-locals = 20

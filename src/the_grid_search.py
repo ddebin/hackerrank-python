@@ -1,17 +1,19 @@
 #!/usr/bin/env python3
 
-import sys
 import os
+import sys
+from pathlib import Path
 from typing import IO
 
 
 def gridSearch(G: list[str], P: list[str]) -> str:
     """
-    Returns a string("YES", "NO") if pattern P has been found in G.
+    Return a string("YES", "NO") if pattern P has been found in G.
 
     Arguments:
     G - the grid to search
     P - the pattern to search for
+
     """
     p = P[0]
     for i in range(len(G) - len(P) + 1):
@@ -63,8 +65,8 @@ def main(fptr: IO) -> None:
 
 
 if __name__ == "__main__":
-    if "OUTPUT_PATH" in os.environ:
-        with open(os.environ["OUTPUT_PATH"], "wt") as fptr:
+    if path := os.getenv("OUTPUT_PATH"):
+        with Path(path).open("wt", encoding="utf-8") as fptr:
             main(fptr)
             fptr.close()
     else:

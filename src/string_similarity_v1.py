@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
 
-import sys
 import os
-from typing import IO
+import sys
 from operator import itemgetter
+from pathlib import Path
+from typing import IO
 
 
 def buildSuffixArray(s: str) -> list[int]:
-    global dur_1, dur_2, dur_3
-    """Build SuffixArray from string in O(N*log(N)^2)"""
-
+    """Build SuffixArray from string in O(N*log(N)^2)."""
     N = len(s)
 
     # Example "abaab"
@@ -68,8 +67,12 @@ def buildSuffixArray(s: str) -> list[int]:
 
 
 def kasaiLCP(s: str, sa: list[int]) -> list[int]:
-    """Build LCP (Longest Common Prefix between two consecutive entries in SA) from SuffixArray, Kasai's algo in O(N)"""
+    """
+    Build LCP.
 
+    Build Longest Common Prefix between two consecutive entries in SA
+    from SuffixArray, Kasai's algo in O(N).
+    """
     N = len(s)
     lcp = [0] * N
     rank = [0] * N
@@ -128,8 +131,8 @@ def main(fptr: IO) -> None:
 
 
 if __name__ == "__main__":
-    if "OUTPUT_PATH" in os.environ:
-        with open(os.environ["OUTPUT_PATH"], "wt") as fptr:
+    if path := os.getenv("OUTPUT_PATH"):
+        with Path(path).open("wt", encoding="utf-8") as fptr:
             main(fptr)
             fptr.close()
     else:

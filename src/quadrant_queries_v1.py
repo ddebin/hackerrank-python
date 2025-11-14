@@ -3,12 +3,13 @@
 import math
 import os
 import sys
+from pathlib import Path
 from typing import IO
 
 
 # count nodes in a range
 def countNodes(
-    start: int, end: int, level: int, leaf_start: int, leaf_end: int
+    start: int, end: int, level: int, leaf_start: int, leaf_end: int,
 ) -> list[int]:
     leafs = 2 ** (levels - level)
     node_idx = 2 ** (level - 1) - 1 + leaf_end // leafs - 1
@@ -58,10 +59,10 @@ def flipNodes(
     else:
         split = leaf_start + (leaf_end - leaf_start) // 2
         left = flipNodes(
-            start, min(end, split), level + 1, leaf_start, split, flip, deepInit
+            start, min(end, split), level + 1, leaf_start, split, flip, deepInit,
         )
         right = flipNodes(
-            max(start, split + 1), end, level + 1, split + 1, leaf_end, flip, deepInit
+            max(start, split + 1), end, level + 1, split + 1, leaf_end, flip, deepInit,
         )
         n = [left[i] + right[i] for i in range(4)]
         tree[node_idx][:4] = n
@@ -125,8 +126,8 @@ def main(fptr: IO) -> None:
 
 
 if __name__ == "__main__":
-    if "OUTPUT_PATH" in os.environ:
-        with open(os.environ["OUTPUT_PATH"], "wt") as fptr:
+    if path := os.getenv("OUTPUT_PATH"):
+        with Path(path).open("wt", encoding="utf-8") as fptr:
             main(fptr)
             fptr.close()
     else:

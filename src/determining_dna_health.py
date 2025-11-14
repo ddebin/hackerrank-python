@@ -1,19 +1,19 @@
 #!/usr/bin/env python3
 
-import sys
-import os
 import bisect
-from collections import defaultdict
-from typing import IO, Dict, List
-from collections import deque
+import os
+import sys
+from collections import defaultdict, deque
 from operator import itemgetter
+from pathlib import Path
+from typing import IO
 
 
 class TrieNode:
-    def __init__(self):
+    def __init__(self) -> None:
         # Initialize TrieNode attributes
-        self.children: Dict[str, TrieNode] = defaultdict(TrieNode)
-        self.output: List[str] = []
+        self.children: dict[str, TrieNode] = defaultdict(TrieNode)
+        self.output: list[str] = []
         self.fail: TrieNode | None = None
 
 
@@ -116,10 +116,6 @@ def main(fptr: IO) -> None:
         len_min = min(len_min, len(g))
         alphabet.update(list(g))
 
-    print(
-        f"Alphabet of {len(alphabet)}, genes length between {len_min} and {len_max}, {len(genes_dict)} genes, {s} strands"
-    )
-
     dnas = []
     for _ in range(s):
         first_multiple_input = input().rstrip().split()
@@ -132,7 +128,6 @@ def main(fptr: IO) -> None:
     min_h = sys.maxsize
 
     if len_min == len_max:
-        print("Fast Mode!")
         for first, last, d in dnas:
             h = 0
             for i in range(len(d) - len_min + 1):
@@ -144,7 +139,6 @@ def main(fptr: IO) -> None:
 
     else:
         # Build the Aho-Corasick automaton
-        print("Aho-Corasick!")
         genes_unique = set(genes)
         trie = build_automaton(genes_unique)
         for first, last, d in dnas:
@@ -156,8 +150,8 @@ def main(fptr: IO) -> None:
 
 
 if __name__ == "__main__":
-    if "OUTPUT_PATH" in os.environ:
-        with open(os.environ["OUTPUT_PATH"], "wt") as fptr:
+    if path := os.getenv("OUTPUT_PATH"):
+        with Path(path).open("wt", encoding="utf-8") as fptr:
             main(fptr)
             fptr.close()
     else:
